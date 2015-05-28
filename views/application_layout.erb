@@ -2,11 +2,13 @@
 <html lang="en">
   <head>
     <title>Pieces - Styleguide</title>
-
-    <link href="<%= stylesheet_path 'pieces' %>" rel="stylesheet" type="text/css" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+    <%= stylesheet_tag 'pieces' %>
+    <%= stylesheet_tag settings.engine_stylesheet %>
+
+    <%= javascript_tag 'pieces' %>
+    <%= javascript_tag settings.engine_javascript %>
   </head>
 
   <body>
