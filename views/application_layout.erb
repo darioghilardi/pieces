@@ -1,1 +1,21 @@
-<%= yield %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Pieces - Styleguide</title>
+
+    <link href="<%= stylesheet_path 'pieces' %>" rel="stylesheet" type="text/css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  </head>
+
+  <body>
+    <%= erb :navbar %>
+
+    <div class="container">
+      <div class="main">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
