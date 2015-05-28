@@ -13,6 +13,4 @@ class Pieces < Sinatra::Application
   get '/' do
     erb :index, layout: :application_layout
   end
-
-  run! if app_file == $0
 end
