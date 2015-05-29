@@ -16,6 +16,18 @@ Then launch the living styleguide with the following command:
 bundle exec styleguide
 ```
 
+This gem brings livereloading facility to the living styleguide. To use it, run from your engine the following command:
+
+```sh
+bundle exec guard init
+```
+
+and then run guard using:
+
+```sh
+bundle exec guard
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/pieces/fork )

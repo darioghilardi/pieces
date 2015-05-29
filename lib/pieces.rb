@@ -1,9 +1,11 @@
 require "pieces/version"
 require 'sinatra/base'
 require 'sinatra/asset_pipeline'
+require 'rack-livereload'
 
 module Pieces
   class App < Sinatra::Application
+    use Rack::LiveReload
 
     configure do
       set :bind, '0.0.0.0'
