@@ -1,7 +1,6 @@
 require "pieces/version"
 require 'sinatra/base'
 require 'sinatra/asset_pipeline'
-require 'pry'
 
 module Pieces
   class App < Sinatra::Application
@@ -15,9 +14,8 @@ module Pieces
 
     register Sinatra::AssetPipeline
 
-    # A better handling of these lines is absolutely required
-    settings.sprockets.append_path File.expand_path('/home/dario/www/facelift-3-for-pieces/app/assets/stylesheets/')
-    settings.sprockets.append_path File.expand_path('/home/dario/www/facelift-3-for-pieces/app/assets/javascripts/')
+    settings.sprockets.append_path(Bundler.root + 'app/assets/stylesheets/')
+    settings.sprockets.append_path(Bundler.root + 'app/assets/javascripts/')
 
     get '/' do
       erb :index, layout: :application_layout
