@@ -1,5 +1,3 @@
-require 'pry'
-
 class Components
   def initialize(root:)
     @root = root

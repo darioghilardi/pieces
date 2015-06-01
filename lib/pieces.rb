@@ -2,11 +2,16 @@ require "pieces/version"
 require 'sinatra/base'
 require 'sinatra/asset_pipeline'
 require 'engine_assets'
+require 'component'
 require 'rack-livereload'
+require 'rack-flash'
 
 module Pieces
   class App < Sinatra::Application
     use Rack::LiveReload
+    use Rack::Flash
+
+    enable :sessions
 
     configure do
       set :bind, '0.0.0.0'
@@ -24,6 +29,20 @@ module Pieces
 
     get '/' do
       erb :index, layout: :application_layout
+    end
+
+    get '/:component_name' do
+      component = Component.new(
+        name: params['component_name'],
+        components: components
+      )
+
+      unless component.valid?
+        flash[:error] = "The requested component is not available."
+        redirect '/'
+      end
+
+      erb :show, layout: :application_layout
     end
   end
 end

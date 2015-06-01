@@ -28,6 +28,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "sinatra", "~> 1.4.6"
   spec.add_dependency "sinatra-asset-pipeline", "~> 0.7.0"
+  spec.add_dependency "rack-flash3", "~> 1.0.5"
   spec.add_dependency "rack-livereload", "~> 0.3.15"
   spec.add_dependency "guard-livereload", "~> 2.4.0"
   spec.add_dependency "pry"
