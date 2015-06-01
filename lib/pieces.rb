@@ -1,6 +1,7 @@
 require "pieces/version"
 require 'sinatra/base'
 require 'sinatra/asset_pipeline'
+require 'engine_assets'
 require 'rack-livereload'
 
 module Pieces
@@ -15,9 +16,11 @@ module Pieces
     end
 
     register Sinatra::AssetPipeline
+    register Sinatra::EngineAssets
 
-    settings.sprockets.append_path(Bundler.root + 'app/assets/stylesheets/')
-    settings.sprockets.append_path(Bundler.root + 'app/assets/javascripts/')
+    register_engine_stylesheets_folder
+    register_engine_javascripts_folder
+    register_engine_components_folders
 
     get '/' do
       erb :index, layout: :application_layout
